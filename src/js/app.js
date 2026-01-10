@@ -1,10 +1,10 @@
 import '../css/style.css';
+import goblinImage from '../assets/goblin.png';
 
 const gameContainer = document.getElementById('game');
 const gridSize = 4;
 let currentCellIndex = null;
 
-// Create 4x4 grid
 function createGrid() {
   for (let i = 0; i < gridSize * gridSize; i += 1) {
     const cell = document.createElement('div');
@@ -14,16 +14,14 @@ function createGrid() {
   }
 }
 
-// Create character img
 function createCharacter() {
   const img = document.createElement('img');
-  img.src = './goblin.png'; // Using the goblin image
+  img.src = goblinImage;
   img.alt = 'Character';
   img.className = 'character';
   return img;
 }
 
-// Place character at random position
 function placeCharacterRandomly(character) {
   const cells = document.querySelectorAll('.cell');
   const randomIndex = Math.floor(Math.random() * cells.length);
@@ -31,7 +29,6 @@ function placeCharacterRandomly(character) {
   currentCellIndex = randomIndex;
 }
 
-// Move character to random position (not the same)
 function moveCharacter() {
   const cells = document.querySelectorAll('.cell');
   const character = document.querySelector('.character');
@@ -46,13 +43,11 @@ function moveCharacter() {
   currentCellIndex = newIndex;
 }
 
-// Initialize game
 function initGame() {
   createGrid();
   const character = createCharacter();
   placeCharacterRandomly(character);
 
-  // Move every 2 seconds
   setInterval(moveCharacter, 2000);
 }
 

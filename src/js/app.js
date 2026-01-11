@@ -48,7 +48,7 @@ function initGame() {
   const character = createCharacter();
   placeCharacterRandomly(character);
 
-  setInterval(moveCharacter, 2000);
+  setInterval(moveCharacter, 1000);
 }
 
 initGame();

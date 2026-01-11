@@ -10,7 +10,7 @@ function createGrid() {
     const cell = document.createElement('div');
     cell.className = 'cell';
     cell.dataset.index = i;
-    gameContainer.appendChild(cell);
+    gameContainer.append(cell);
   }
 }
 
@@ -25,7 +25,7 @@ function createCharacter() {
 function placeCharacterRandomly(character) {
   const cells = document.querySelectorAll('.cell');
   const randomIndex = Math.floor(Math.random() * cells.length);
-  cells[randomIndex].appendChild(character);
+  cells[randomIndex].append(character);
   currentCellIndex = randomIndex;
 }
 
